@@ -56,6 +56,7 @@
 			this.chkVelocity.Checked = this.Settings.ShowVelocity;
 			this.chkUseHttps.Checked = this.Settings.UseHttps;
 			this.chkIsVso.Checked = this.Settings.IsVisualStudioOnline;
+			this.rbScrum.Checked = this.Settings.TemplteIsScrum;
 
 			this.txtGoals.Text = string.Empty;
 			foreach (var line in this.Settings.SprintGoals)
@@ -81,6 +82,8 @@
 			this.Settings.ShowVelocity = this.chkVelocity.Checked;
 			this.Settings.UseHttps = this.chkUseHttps.Checked;
 			this.Settings.IsVisualStudioOnline = this.chkIsVso.Checked;
+
+			this.Settings.TemplteIsScrum = this.rbScrum.Checked;
 
 			this.Settings.SprintGoals.Clear();
 			foreach (var item in this.txtGoals.Lines)

@@ -51,12 +51,12 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.txtGoals = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.radioButton3 = new System.Windows.Forms.RadioButton();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
-			this.radioButton1 = new System.Windows.Forms.RadioButton();
+			this.rbCmmi = new System.Windows.Forms.RadioButton();
+			this.rbAgile = new System.Windows.Forms.RadioButton();
+			this.rbScrum = new System.Windows.Forms.RadioButton();
 			this.chkUseHttps = new System.Windows.Forms.CheckBox();
-			this.settingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.chkIsVso = new System.Windows.Forms.CheckBox();
+			this.settingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.settingsBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -283,38 +283,38 @@
 			this.label7.TabIndex = 22;
 			this.label7.Text = "Project Template";
 			// 
-			// radioButton3
+			// rbCmmi
 			// 
-			this.radioButton3.AutoSize = true;
-			this.radioButton3.Enabled = false;
-			this.radioButton3.Location = new System.Drawing.Point(309, 166);
-			this.radioButton3.Name = "radioButton3";
-			this.radioButton3.Size = new System.Drawing.Size(53, 17);
-			this.radioButton3.TabIndex = 14;
-			this.radioButton3.Text = "CMMI";
-			this.radioButton3.UseVisualStyleBackColor = true;
+			this.rbCmmi.AutoSize = true;
+			this.rbCmmi.Enabled = false;
+			this.rbCmmi.Location = new System.Drawing.Point(309, 166);
+			this.rbCmmi.Name = "rbCmmi";
+			this.rbCmmi.Size = new System.Drawing.Size(53, 17);
+			this.rbCmmi.TabIndex = 14;
+			this.rbCmmi.Text = "CMMI";
+			this.rbCmmi.UseVisualStyleBackColor = true;
 			// 
-			// radioButton2
+			// rbAgile
 			// 
-			this.radioButton2.AutoSize = true;
-			this.radioButton2.Checked = true;
-			this.radioButton2.Location = new System.Drawing.Point(223, 166);
-			this.radioButton2.Name = "radioButton2";
-			this.radioButton2.Size = new System.Drawing.Size(48, 17);
-			this.radioButton2.TabIndex = 13;
-			this.radioButton2.TabStop = true;
-			this.radioButton2.Text = "Agile";
-			this.radioButton2.UseVisualStyleBackColor = true;
+			this.rbAgile.AutoSize = true;
+			this.rbAgile.Checked = true;
+			this.rbAgile.Location = new System.Drawing.Point(223, 166);
+			this.rbAgile.Name = "rbAgile";
+			this.rbAgile.Size = new System.Drawing.Size(48, 17);
+			this.rbAgile.TabIndex = 13;
+			this.rbAgile.TabStop = true;
+			this.rbAgile.Text = "Agile";
+			this.rbAgile.UseVisualStyleBackColor = true;
 			// 
-			// radioButton1
+			// rbScrum
 			// 
-			this.radioButton1.AutoSize = true;
-			this.radioButton1.Location = new System.Drawing.Point(136, 166);
-			this.radioButton1.Name = "radioButton1";
-			this.radioButton1.Size = new System.Drawing.Size(64, 17);
-			this.radioButton1.TabIndex = 12;
-			this.radioButton1.Text = "SCRUM";
-			this.radioButton1.UseVisualStyleBackColor = true;
+			this.rbScrum.AutoSize = true;
+			this.rbScrum.Location = new System.Drawing.Point(136, 166);
+			this.rbScrum.Name = "rbScrum";
+			this.rbScrum.Size = new System.Drawing.Size(64, 17);
+			this.rbScrum.TabIndex = 12;
+			this.rbScrum.Text = "SCRUM";
+			this.rbScrum.UseVisualStyleBackColor = true;
 			// 
 			// chkUseHttps
 			// 
@@ -326,10 +326,6 @@
 			this.chkUseHttps.Text = "Use HTTPS";
 			this.chkUseHttps.UseVisualStyleBackColor = true;
 			// 
-			// settingsBindingSource
-			// 
-			this.settingsBindingSource.DataSource = typeof(TfsPortalRadiatorScreenSaver.Settings);
-			// 
 			// chkIsVso
 			// 
 			this.chkIsVso.AutoSize = true;
@@ -340,6 +336,10 @@
 			this.chkIsVso.Text = "Is Server Visual Studio Online";
 			this.chkIsVso.UseVisualStyleBackColor = true;
 			// 
+			// settingsBindingSource
+			// 
+			this.settingsBindingSource.DataSource = typeof(TfsPortalRadiatorScreenSaver.Settings);
+			// 
 			// SettingsForm
 			// 
 			this.AcceptButton = this.cmdOK;
@@ -349,9 +349,9 @@
 			this.ClientSize = new System.Drawing.Size(625, 319);
 			this.Controls.Add(this.chkIsVso);
 			this.Controls.Add(this.chkUseHttps);
-			this.Controls.Add(this.radioButton3);
-			this.Controls.Add(this.radioButton2);
-			this.Controls.Add(this.radioButton1);
+			this.Controls.Add(this.rbCmmi);
+			this.Controls.Add(this.rbAgile);
+			this.Controls.Add(this.rbScrum);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.txtGoals);
 			this.Controls.Add(this.label6);
@@ -408,9 +408,9 @@
 		private System.Windows.Forms.BindingSource settingsBindingSource;
 		private System.Windows.Forms.TextBox txtGoals;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.RadioButton radioButton3;
-		private System.Windows.Forms.RadioButton radioButton2;
-		private System.Windows.Forms.RadioButton radioButton1;
+		private System.Windows.Forms.RadioButton rbCmmi;
+		private System.Windows.Forms.RadioButton rbAgile;
+		private System.Windows.Forms.RadioButton rbScrum;
 		private System.Windows.Forms.CheckBox chkUseHttps;
 		private System.Windows.Forms.CheckBox chkIsVso;
 	}
