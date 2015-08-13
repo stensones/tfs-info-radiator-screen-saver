@@ -5,13 +5,14 @@
 	using System.Linq;
 	using System.Windows.Forms;
 
-	static class Program
+	public static class Program
 	{
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
+		/// <param name="args">Command line arguments</param>
 		[STAThread]
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

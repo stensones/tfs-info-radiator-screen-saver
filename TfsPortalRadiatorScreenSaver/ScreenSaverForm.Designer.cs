@@ -55,7 +55,7 @@
 			// timPageChange
 			// 
 			this.timPageChange.Interval = 10000;
-			this.timPageChange.Tick += new System.EventHandler(this.timPageChange_Tick);
+			this.timPageChange.Tick += new System.EventHandler(this.TimPageChange_Tick);
 			// 
 			// ScreenSaverForm
 			// 

@@ -10,6 +10,11 @@
 	{
 		private const string ScreensSaverRegistryKey = "Software\\APD Communications\\TFS Information Radiator Screen Saver";
 
+		public Settings()
+		{
+			this.SprintGoals = new List<string>();
+		}
+
 		public string TfsServerName { get; set; }
 
 		public ushort TfsPortNumber { get; set; }
@@ -26,7 +31,7 @@
 
 		public bool ShowBuilds { get; set; }
 
-		public bool ShowPortalPage{ get; set; }
+		public bool ShowPortalPage { get; set; }
 
 		public bool ShowSprintGoal { get; set; }
 
@@ -37,11 +42,6 @@
 		public bool TemplteIsScrum { get; set; }
 
 		public IList<string> SprintGoals { get; private set; }
-
-		public Settings()
-		{
-			this.SprintGoals = new List<string>();
-		}
 
 		public void SaveSettings()
 		{

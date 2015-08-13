@@ -53,7 +53,7 @@
 
 			this.pageNumber = 0;
 			this.GeneratePageUrls();
-			this.timPageChange_Tick(null, EventArgs.Empty);
+			this.TimPageChange_Tick(null, EventArgs.Empty);
 
 			this.timPageChange.Enabled = true;
 		}
@@ -126,7 +126,7 @@
 			}
 		}
 
-		private void timPageChange_Tick(object sender, EventArgs e)
+		private void TimPageChange_Tick(object sender, EventArgs e)
 		{
 			var nextPage = this.GetNextPageUri();
 			this.webBrowser.Navigate(nextPage);

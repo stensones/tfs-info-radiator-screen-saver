@@ -11,12 +11,12 @@
 
 	public partial class SettingsForm : Form
 	{
-		public Settings Settings { get; private set; }
-
 		public SettingsForm()
 		{
 			this.InitializeComponent();
 		}
+
+		public Settings Settings { get; private set; }
 
 		private void SettingsForm_Load(object sender, EventArgs e)
 		{
@@ -79,7 +79,7 @@
 			this.Settings.ShowVelocity = this.chkVelocity.Checked;
 
 			this.Settings.SprintGoals.Clear();
-			foreach(var item in this.txtGoals.Lines)
+			foreach (var item in this.txtGoals.Lines)
 			{
 				this.Settings.SprintGoals.Add(item);
 			}
