@@ -12,25 +12,25 @@
 	/// </summary>
 	public static class NativeMethods
 	{
-		public const int URLMON_OPTION_USERAGENT = 0x10000001;
+		internal const int URLMON_OPTION_USERAGENT = 0x10000001;
 
 		// Changes the parent window of the specified child window
 		[DllImport("user32.dll")]
-		public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+		internal static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
 
 		// Changes an attribute of the specified window
 		[DllImport("user32.dll")]
-		public static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+		internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
 		// Retrieves information about the specified window
 		[DllImport("user32.dll", SetLastError = true)]
-		public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+		internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
 		// Retrieves the coordinates of a window's client area
 		[DllImport("user32.dll")]
-		public static extern bool GetClientRect(IntPtr hWnd, out Rectangle lpRect);
+		internal static extern bool GetClientRect(IntPtr hWnd, out Rectangle lpRect);
 
 		[DllImport("urlmon.dll", CharSet = CharSet.Ansi)]
-		public static extern int UrlMkSetSessionOption(int dwOption, string pBuffer, int dwBufferLength, int dwReserved);
+		internal static extern int UrlMkSetSessionOption(int dwOption, string pBuffer, int dwBufferLength, int dwReserved);
 	}
 }

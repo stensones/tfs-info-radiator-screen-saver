@@ -8,7 +8,7 @@
 
 	public class Settings
 	{
-		private const string ScreensSaverRegistryKey = "Software\\APD Communications\\TFS Information Radiator Screen Saver";
+		private const string ScreensSaverRegistryKey = "Software\\Stensones\\TFS Information Radiator Screen Saver";
 
 		public Settings()
 		{
@@ -39,6 +39,10 @@
 
 		public bool ShowBurndown { get; set; }
 
+		public bool UseHttps { get; set; }
+
+		public bool IsVisualStudioOnline { get; set; }
+
 		public bool TemplteIsScrum { get; set; }
 
 		public IList<string> SprintGoals { get; private set; }
@@ -63,7 +67,9 @@
 					key.SetValue("ShowTaskBoard", this.ShowTaskBoard, RegistryValueKind.DWord);
 					key.SetValue("ShowVelocity", this.ShowVelocity, RegistryValueKind.DWord);
 					key.SetValue("TemplteIsScrum", this.TemplteIsScrum, RegistryValueKind.DWord);
-					
+					key.SetValue("UseHttps", this.UseHttps, RegistryValueKind.DWord);
+					key.SetValue("IsVisualStudioOnline", this.IsVisualStudioOnline, RegistryValueKind.DWord);
+
 					key.SetValue("SprintGoals", this.SprintGoals.ToArray(), RegistryValueKind.MultiString);
 				}
 			}
@@ -77,14 +83,14 @@
 				{
 					object readValue;
 
-					this.TfsServerName = (string)key.GetValue("TfsServerName", "TFS");
+					this.TfsServerName = (string)key.GetValue("TfsServerName", "TFS-server");
 
 					readValue = key.GetValue("TfsPortNumber", (ushort)8080);
 					this.TfsPortNumber = Convert.ToUInt16(readValue);
 
-					this.ColectionName = (string)key.GetValue("ColectionName", "APDCollection");
+					this.ColectionName = (string)key.GetValue("ColectionName", "DefaultCollection");
 
-					this.ProjectName = (string)key.GetValue("ProjectName", "APD%20Agile");
+					this.ProjectName = (string)key.GetValue("ProjectName", string.Empty);
 
 					readValue = key.GetValue("ShowBacklog", true);
 					this.ShowBacklog = Convert.ToBoolean(readValue);
@@ -113,6 +119,12 @@
 					readValue = key.GetValue("TemplteIsScrum", false);
 					this.TemplteIsScrum = Convert.ToBoolean(readValue);
 
+					readValue = key.GetValue("UseHttps", false);
+					this.UseHttps = Convert.ToBoolean(readValue);
+					
+					readValue = key.GetValue("IsVisualStudioOnline", false);
+					this.IsVisualStudioOnline = Convert.ToBoolean(readValue);
+
 					readValue = (string[])key.GetValue("SprintGoals", new string[] { "What is the ultimate answer?" });
 					foreach (var item in (string[])readValue)
 					{
@@ -121,10 +133,10 @@
 				}
 				else
 				{
-					this.TfsServerName = "TFS";
+					this.TfsServerName = "TFS-server";
 					this.TfsPortNumber = 8080;
-					this.ColectionName = "APDCollection";
-					this.ProjectName = "APD%20Agile";
+					this.ColectionName = "DefaultCollection";
+					this.ProjectName = string.Empty;
 					this.ShowBacklog = true;
 					this.ShowBuilds = true;
 					this.ShowBurndown = false;

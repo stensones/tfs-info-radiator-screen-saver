@@ -86,7 +86,7 @@
 		private void GeneratePageUrls()
 		{
 			this.pageUrls = new List<Uri>();
-			var baseUri = new Uri(string.Format(CultureInfo.InvariantCulture, "http://{0}:{1}/tfs/{2}/{3}/", this.settings.TfsServerName, this.settings.TfsPortNumber, this.settings.ColectionName, this.settings.ProjectName));
+			var baseUri = this.MakeBaseUri();
 
 			if (this.settings.ShowPortalPage)
 			{
@@ -124,6 +124,34 @@
 			{
 				this.pageUrls.Add(this.GenerateSprintGoalWebPage());
 			}
+		}
+
+		private Uri MakeBaseUri()
+		{
+			var scheme = string.Format(
+				CultureInfo.InvariantCulture,
+				"http{0}",
+				this.settings.UseHttps ? "s" : string.Empty);
+			var port = string.Empty;
+			if (this.settings.TfsPortNumber != 80)
+			{
+				port = string.Format(
+					CultureInfo.InvariantCulture,
+					":{0}",
+					this.settings.TfsPortNumber);
+			}
+
+			var path = string.Format(
+				CultureInfo.InvariantCulture,
+				"{0}://{1}{2}/{3}{4}/{5}/",
+				scheme,
+				this.settings.TfsServerName,
+				port,
+				this.settings.IsVisualStudioOnline ? string.Empty : "tfs/",
+				this.settings.ColectionName,
+				this.settings.ProjectName);
+
+			return new Uri(path);
 		}
 
 		private void TimPageChange_Tick(object sender, EventArgs e)

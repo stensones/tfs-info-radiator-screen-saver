@@ -54,6 +54,8 @@
 			this.chkSpintGoal.Checked = this.Settings.ShowSprintGoal;
 			this.chkTasks.Checked = this.Settings.ShowTaskBoard;
 			this.chkVelocity.Checked = this.Settings.ShowVelocity;
+			this.chkUseHttps.Checked = this.Settings.UseHttps;
+			this.chkIsVso.Checked = this.Settings.IsVisualStudioOnline;
 
 			this.txtGoals.Text = string.Empty;
 			foreach (var line in this.Settings.SprintGoals)
@@ -77,6 +79,8 @@
 			this.Settings.ShowSprintGoal = this.chkSpintGoal.Checked;
 			this.Settings.ShowTaskBoard = this.chkTasks.Checked;
 			this.Settings.ShowVelocity = this.chkVelocity.Checked;
+			this.Settings.UseHttps = this.chkUseHttps.Checked;
+			this.Settings.IsVisualStudioOnline = this.chkIsVso.Checked;
 
 			this.Settings.SprintGoals.Clear();
 			foreach (var item in this.txtGoals.Lines)

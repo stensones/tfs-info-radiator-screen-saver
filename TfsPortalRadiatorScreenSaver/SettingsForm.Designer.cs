@@ -54,7 +54,9 @@
 			this.radioButton3 = new System.Windows.Forms.RadioButton();
 			this.radioButton2 = new System.Windows.Forms.RadioButton();
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
+			this.chkUseHttps = new System.Windows.Forms.CheckBox();
 			this.settingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.chkIsVso = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.settingsBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -91,7 +93,7 @@
 			this.txtCollection.Name = "txtCollection";
 			this.txtCollection.Size = new System.Drawing.Size(162, 20);
 			this.txtCollection.TabIndex = 2;
-			this.txtCollection.Text = "ApdCollection";
+			this.txtCollection.Text = "DefaultCollection";
 			// 
 			// txtProject
 			// 
@@ -99,7 +101,6 @@
 			this.txtProject.Name = "txtProject";
 			this.txtProject.Size = new System.Drawing.Size(162, 20);
 			this.txtProject.TabIndex = 3;
-			this.txtProject.Text = "APD Agile";
 			// 
 			// txtHostName
 			// 
@@ -107,7 +108,6 @@
 			this.txtHostName.Name = "txtHostName";
 			this.txtHostName.Size = new System.Drawing.Size(162, 20);
 			this.txtHostName.TabIndex = 0;
-			this.txtHostName.Text = "tfs";
 			// 
 			// txtPortNumber
 			// 
@@ -316,9 +316,29 @@
 			this.radioButton1.Text = "SCRUM";
 			this.radioButton1.UseVisualStyleBackColor = true;
 			// 
+			// chkUseHttps
+			// 
+			this.chkUseHttps.AutoSize = true;
+			this.chkUseHttps.Location = new System.Drawing.Point(309, 16);
+			this.chkUseHttps.Name = "chkUseHttps";
+			this.chkUseHttps.Size = new System.Drawing.Size(84, 17);
+			this.chkUseHttps.TabIndex = 23;
+			this.chkUseHttps.Text = "Use HTTPS";
+			this.chkUseHttps.UseVisualStyleBackColor = true;
+			// 
 			// settingsBindingSource
 			// 
 			this.settingsBindingSource.DataSource = typeof(TfsPortalRadiatorScreenSaver.Settings);
+			// 
+			// chkIsVso
+			// 
+			this.chkIsVso.AutoSize = true;
+			this.chkIsVso.Location = new System.Drawing.Point(396, 16);
+			this.chkIsVso.Name = "chkIsVso";
+			this.chkIsVso.Size = new System.Drawing.Size(165, 17);
+			this.chkIsVso.TabIndex = 24;
+			this.chkIsVso.Text = "Is Server Visual Studio Online";
+			this.chkIsVso.UseVisualStyleBackColor = true;
 			// 
 			// SettingsForm
 			// 
@@ -327,6 +347,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.cmdCancel;
 			this.ClientSize = new System.Drawing.Size(625, 319);
+			this.Controls.Add(this.chkIsVso);
+			this.Controls.Add(this.chkUseHttps);
 			this.Controls.Add(this.radioButton3);
 			this.Controls.Add(this.radioButton2);
 			this.Controls.Add(this.radioButton1);
@@ -389,5 +411,7 @@
 		private System.Windows.Forms.RadioButton radioButton3;
 		private System.Windows.Forms.RadioButton radioButton2;
 		private System.Windows.Forms.RadioButton radioButton1;
+		private System.Windows.Forms.CheckBox chkUseHttps;
+		private System.Windows.Forms.CheckBox chkIsVso;
 	}
 }
