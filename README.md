@@ -1,4 +1,7 @@
-# tfs-info-radiator-screen-saver
+TFS Infoormation Radiator
+=========================
+A Windows screen Saver
+----------------------
 
 Want to show your TFS team project backlogs, sprint goal, builds, portal page and more in an endless carousel? the TFS info radiator provides this in a simple Windows screen saver. Ideal for unattended PCs; simply set up the screensaver lock the PC and walk away; no security issues from leaving an unlocked PC running round web pages.
 
