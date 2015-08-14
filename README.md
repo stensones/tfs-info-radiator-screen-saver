@@ -1,4 +1,4 @@
-TFS Infoormation Radiator
+TFS Information Radiator
 =========================
 A Windows screen Saver
 ----------------------
