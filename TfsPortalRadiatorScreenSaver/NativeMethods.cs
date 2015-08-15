@@ -20,7 +20,7 @@
 
 		// Changes an attribute of the specified window
 		[DllImport("user32.dll")]
-		internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+		internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
 		// Retrieves information about the specified window
 		[DllImport("user32.dll", SetLastError = true)]
@@ -30,7 +30,7 @@
 		[DllImport("user32.dll")]
 		internal static extern bool GetClientRect(IntPtr hWnd, out Rectangle lpRect);
 
-		[DllImport("urlmon.dll", CharSet = CharSet.Ansi)]
-		internal static extern int UrlMkSetSessionOption(int dwOption, string pBuffer, int dwBufferLength, int dwReserved);
+		[DllImport("urlmon.dll", CharSet = CharSet.Unicode)]
+		internal static extern int UrlMkSetSessionOption(int dwOption, StringBuilder pBuffer, int dwBufferLength, int dwReserved);
 	}
 }

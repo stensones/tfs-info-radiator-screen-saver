@@ -26,14 +26,14 @@
 
 			// pretend to be IE 11 so pages aren't wingeing about us being an unsupported browser.
 			var ua = "Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko";
-			NativeMethods.UrlMkSetSessionOption(NativeMethods.URLMON_OPTION_USERAGENT, ua, ua.Length, 0);
+			NativeMethods.UrlMkSetSessionOption(NativeMethods.URLMON_OPTION_USERAGENT, new StringBuilder(ua), ua.Length, 0);
 		}
 
 		public ScreenSaverForm(IntPtr previewHandle)
 			: base()
 		{
 			NativeMethods.SetParent(this.Handle, previewHandle);
-			NativeMethods.SetWindowLong(this.Handle, -16, new IntPtr(NativeMethods.GetWindowLong(this.Handle, -16) | 0x40000000));
+			NativeMethods.SetWindowLong(this.Handle, -16, NativeMethods.GetWindowLong(this.Handle, -16) | 0x40000000);
 			Rectangle parentRect;
 			NativeMethods.GetClientRect(previewHandle, out parentRect);
 			this.Size = parentRect.Size;
@@ -190,11 +190,21 @@
 		private Uri GenerateSprintGoalWebPage()
 		{
 			var filename = Path.GetTempFileName().Replace(".tmp", ".html");
-			using (var file = new FileStream(filename, FileMode.CreateNew))
+			FileStream file = null;
+			try
 			{
+				file = new FileStream(filename, FileMode.CreateNew);
 				using (var txt = new StreamWriter(file))
 				{
 					txt.Write(this.CreateSpintGoalPageContent());
+					file = null;
+				}
+			}
+			finally
+			{
+				if (file != null)
+				{
+					file.Dispose();
 				}
 			}
 
