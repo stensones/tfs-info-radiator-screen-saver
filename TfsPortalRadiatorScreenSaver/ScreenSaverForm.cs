@@ -36,19 +36,35 @@
 		public ScreenSaverForm(IntPtr previewHandle)
 			: base()
 		{
+			// Set the preview window as the parent of this window
 			NativeMethods.SetParent(this.Handle, previewHandle);
+
+			// Make this a child window so it will close when the parent dialog closes 
+			// GWL_STYLE = -16, WS_CHILD = 0x40000000 
 			NativeMethods.SetWindowLong(
 				this.Handle, 
 				-16, 
 				NativeMethods.GetWindowLong(this.Handle, -16) | 0x40000000);
+
+			// loose that pesky tile bar from the preview window!
+			////this.WindowState = FormWindowState.Maximized;
+			this.ShowIcon = false;
+			this.HelpButton = false;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.ControlBox = false;
+			this.FormBorderStyle = FormBorderStyle.None;
+
+			// Place our window inside the parent
 			Rectangle parentRect;
 			NativeMethods.GetClientRect(previewHandle, out parentRect);
 			this.Size = parentRect.Size;
 			this.Location = new Point(0, 0);
 
+			// re-zoom the browser control so the content fits!
 			var scale = this.CalculateScaleFactor();
-			this.Scale(scale);
-		}
+			////this.Scale(scale);
+        }
 
 		private SizeF CalculateScaleFactor()
 		{

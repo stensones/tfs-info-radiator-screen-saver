@@ -47,6 +47,7 @@
 			this.webBrowser.ScrollBarsEnabled = false;
 			this.webBrowser.Size = new System.Drawing.Size(723, 467);
 			this.webBrowser.TabIndex = 0;
+			this.webBrowser.Url = new System.Uri("", System.UriKind.Relative);
 			this.webBrowser.WebBrowserShortcutsEnabled = false;
 			this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.WebBrowser_DocumentCompleted);
 			this.webBrowser.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.WebBrowser_Navigating);
@@ -64,11 +65,12 @@
 			this.BackColor = System.Drawing.Color.Black;
 			this.ClientSize = new System.Drawing.Size(723, 467);
 			this.Controls.Add(this.webBrowser);
-			this.ForeColor = System.Drawing.Color.White;
+			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ForeColor = System.Drawing.Color.DarkRed;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "ScreenSaverForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Form1";
+			this.Text = "TFS Information Radiator";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.ScreenSaverForm_Load);
 			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScreenSaverForm_MouseDown);
