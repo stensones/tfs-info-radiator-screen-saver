@@ -36,7 +36,15 @@
 						Program.RunSettingsForm();
 						break;
 					case "/p":
-						Program.RunPreviewForm();
+						if (args.Length > 1)
+						{
+							long handle;
+							if (long.TryParse(args[1], out handle))
+							{
+								Program.RunPreviewForm(new IntPtr(handle));
+							}
+						}
+
 						break;
 					case "/s":
 					default:
@@ -50,10 +58,10 @@
 			}
 		}
 
-		private static void RunPreviewForm()
+		private static void RunPreviewForm(IntPtr handle)
 		{
-			////	var screenSaverForm = new ScreenSaverForm(new IntPtr(long.Parse(args[1])));
-			////	Application.Run(screenSaverForm);
+			var screenSaverForm = new ScreenSaverForm(handle);
+			Application.Run(screenSaverForm);
 		}
 
 		private static void RunSettingsForm()

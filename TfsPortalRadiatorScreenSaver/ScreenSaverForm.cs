@@ -26,21 +26,48 @@
 
 			// pretend to be IE 11 so pages aren't wingeing about us being an unsupported browser.
 			var ua = "Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko";
-			NativeMethods.UrlMkSetSessionOption(NativeMethods.URLMON_OPTION_USERAGENT, new StringBuilder(ua), ua.Length, 0);
+			NativeMethods.UrlMkSetSessionOption(
+				NativeMethods.URLMON_OPTION_USERAGENT, 
+				new StringBuilder(ua), 
+				ua.Length, 
+				0);
 		}
 
 		public ScreenSaverForm(IntPtr previewHandle)
 			: base()
 		{
 			NativeMethods.SetParent(this.Handle, previewHandle);
-			NativeMethods.SetWindowLong(this.Handle, -16, NativeMethods.GetWindowLong(this.Handle, -16) | 0x40000000);
+			NativeMethods.SetWindowLong(
+				this.Handle, 
+				-16, 
+				NativeMethods.GetWindowLong(this.Handle, -16) | 0x40000000);
 			Rectangle parentRect;
 			NativeMethods.GetClientRect(previewHandle, out parentRect);
 			this.Size = parentRect.Size;
 			this.Location = new Point(0, 0);
-			////this.previewMode = true;
 
-			////webBrowser.Scale(new SizeF(0.1f, 0.1f));
+			var scale = this.CalculateScaleFactor();
+			this.Scale(scale);
+		}
+
+		private SizeF CalculateScaleFactor()
+		{
+			var screenSize = Screen.PrimaryScreen.Bounds;
+			var previewSize = this.Bounds;
+			float scaleX;
+			float scaleY;
+            if (previewSize.Width == 0 || previewSize.Height == 0)
+			{
+				scaleX = 0.1f;
+				scaleY = 0.1f;
+			}
+			else
+			{
+				scaleX = previewSize.Width / (float)screenSize.Width;
+				scaleY = previewSize.Height / (float)screenSize.Height;
+			}
+
+			return new SizeF(scaleX, scaleY);
 		}
 
 		private void ScreenSaverForm_Load(object sender, EventArgs e)
@@ -196,8 +223,8 @@
 				file = new FileStream(filename, FileMode.CreateNew);
 				using (var txt = new StreamWriter(file))
 				{
-					txt.Write(this.CreateSpintGoalPageContent());
 					file = null;
+					txt.Write(this.CreateSpintGoalPageContent());
 				}
 			}
 			finally
