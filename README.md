@@ -15,3 +15,5 @@ Compatible with the Agile and SCRUM templates.
  * spint task board. 
  
 Should suffice for most office space "information raditor" uses.
+
+*Tested on Windows 7, 8.1 and 10 against on-prem 2013.5 (Agile and SCRUM) and VSO (SCRUM)*
