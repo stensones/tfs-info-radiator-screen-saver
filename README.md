@@ -17,8 +17,7 @@ Compatible with the Agile and SCRUM templates.
 Should suffice for most office space "information raditor" uses.
 
 ##Tested client OS and browser combos
-| OS          | browsers                |
-|             | IE 11 | Chrome | Fiefox |
+| OS          | IE 11 | Chrome | Fiefox |
 |------------:|:-----:|:------:|:------:| 
 | Windows 7   | yes   | no     | no     |
 | Windows 8.1 | yes   | no     | no     |
