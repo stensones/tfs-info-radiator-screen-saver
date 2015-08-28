@@ -16,14 +16,15 @@ Compatible with the Agile and SCRUM templates.
  
 Should suffice for most office space "information raditor" uses.
 
-##Tested client OS and browser combos
+##Test/Comaptability Matrix
+###Tested client OS and browser combos
 | OS          | IE 11   | Chrome | Fiefox |
 |------------:|:-------:|:------:|:------:| 
 | Windows 7   | **yes** | *no*   | *no*   |
 | Windows 8.1 | **yes** | *no*   | *no*   |
 | Windows 10  | **yes** | *no*   | *no*   |
 
-##Tested servers and TFS project templates
+###Tested servers and TFS project templates
 |       | on-prem 2013.5 server | VSO     |
 |------:|:---------------------:|:-------:|
 | SCRUM | **yes**               | **yes** |
